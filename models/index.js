@@ -1,29 +1,31 @@
-const { Sequelize, DataTypes, Model, QueryTypes } = require("sequelize");
+const {Sequelize, DataTypes, Model} = require('sequelize')
 
-const sequelize = new Sequelize("student", "root", "arpita@3006", {
-    host: "localhost",
-    logging: false,
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    },
-    dialect: "mysql",
-  });
-  try {
+// Passing parameters separately (other dialects)
+
+const sequelize = new Sequelize('employeedb','root','arpita@3006',{
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false
+});
+
+
+// Testing the connection
+// You can use the .authenticate() function to test if the connection is OK:
+
+try{
     sequelize.authenticate();
-    console.log("Connection has been established successfully.");
-  } catch (error) {
-    console.error("Unable to connect to the database:", error);
-  }
-  
-  const db = {};
+    console.log('Connection has been established successfully');
+}
+catch(error){
+    console.error('Unable to connect to the database',error)
+}
 
-  db.sequelize = sequelize;
+const db = {}
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.contacts=require('./contact')(sequelize,DataTypes)
+db.user=require('./user')(sequelize,DataTypes)
 
-  db.user = require("./user")(sequelize,DataTypes);
-db.contacts = require("./contact")(sequelize,DataTypes);
+db.sequelize.sync({force:false});
 
-db.sequelize.sync({ force: true });
-module.exports = db;
+module.exports = db

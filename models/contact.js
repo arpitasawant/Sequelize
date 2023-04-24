@@ -1,18 +1,19 @@
-module.exports = (sequelize,DataTypes) => {
-  const Contact = sequelize.define(
-    "contacts",
-    {
-      permanentAdd: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      currentAdd: {
-        type: DataTypes.STRING,
-      },
+// const {DataTypes} = require('sequelize');
+// const sequelize = require('./index')
+
+module.exports = (sequelize,DataTypes)=>{
+   const Contact = sequelize.define('contacts',{
+    CurrentAdd: {
+        type:DataTypes.STRING,
+        allowNull: false
     },
-    {
-      tableName: "contacts",
+    PermanentAdd:{
+        type:DataTypes.STRING
     }
-  );
-  return Contact;
-};
+
+}) ;
+return Contact;
+}
+
+
+// module.exports = Contact
