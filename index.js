@@ -20,6 +20,10 @@ app.get('/users',userCtrl.getUsers)
 app.get('/users/:id',userCtrl.getUser)
 
 app.post('/users',userCtrl.postUsers)
+
+app.patch('/users/:id',userCtrl.patchUser)
+
+app.delete('/users/:id',userCtrl.deleteUser)
 // User.drop();
 
 // Contact.sync({force:true});

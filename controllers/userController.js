@@ -8,6 +8,8 @@ const addUser = async (req,res)=>
     // console.log(jane.firstName);//Arpita
     // await jane.save();
     // jane.set({firstName:'Himani',lastName:'Sheregar'});
+        jane.update({firstName:'Himani',lastName:'Sheregar'});
+
     console.log("Arpita was saved to the database!");
     console.log(jane.toJSON());
     res.status(200).json(jane.toJSON());
@@ -19,11 +21,12 @@ var getUsers = async(req,res)=>{
 }
 
 var getUser = async(req,res)=>{
-    const data = await User.findOne({}); 
+    const data = await User.findOne({ 
     where:{
         id:req.params.id
     }
-    res.status(200).json({data:data});
+    
+});res.status(200).json({data:data})
 }
 
 var postUsers = async(req,res)=>{
@@ -33,12 +36,36 @@ var postUsers = async(req,res)=>{
     res.status(200).json({data:data});
 }
 
+var deleteUser = async(req,res)=>{
+
+    const data = await User.destroy({
+        where:{
+            id:req.params.id
+        }
+    }); 
+    
+    res.status(200).json({data:data});
+}
+
+var patchUser = async(req,res)=>{
+    var updatedData = req.body;
+
+    const data = await User.update(updatedData,{
+        where:{
+            id:req.params.id
+        }
+    }); 
+    
+    res.status(200).json({data:data});
+}
 
 module.exports={
     addUser,
     getUsers,
     getUser,
-    postUsers
+    postUsers,
+    deleteUser,
+    patchUser
 }
 
 // var db = require("../models");
