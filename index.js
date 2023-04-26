@@ -17,6 +17,7 @@ app.get('/', function (req, res) {
 app.get('/add',userCtrl.addUser)
 
 app.get('/users',userCtrl.getUsers)
+
 app.get('/users/:id',userCtrl.getUser)
 
 app.post('/users',userCtrl.postUsers)
@@ -24,8 +25,8 @@ app.post('/users',userCtrl.postUsers)
 app.patch('/users/:id',userCtrl.patchUser)
 
 app.delete('/users/:id',userCtrl.deleteUser)
-// User.drop();
 
+User.drop();
 // Contact.sync({force:true});
 
 app.listen(3000, () => {
