@@ -1,6 +1,6 @@
 // const {DataTypes} = require('sequelize');
 // const sequelize = require('./index')
-
+//contacts
 module.exports = (sequelize,DataTypes)=>{
    const Contact = sequelize.define('contacts',{
     CurrentAdd: {
