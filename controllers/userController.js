@@ -10,7 +10,7 @@ const addUser = async (req,res)=>
     // jane.set({firstName:'Himani',lastName:'Sheregar'});
         jane.update({firstName:'Himani',lastName:'Sheregar'});
 
-    console.log("Arpita was saved to the database!");
+    console.log("Himani was saved to the database!");
     console.log(jane.toJSON());
     res.status(200).json(jane.toJSON());
 }
