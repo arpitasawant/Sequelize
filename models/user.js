@@ -3,12 +3,12 @@
 
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
-        firstName: {
+        FirstName: {
             type: DataTypes.STRING,
             allowNull: false
             // defaultValue:'John'
         },
-        lastName: {
+        LastName: {
             type: DataTypes.STRING,
             defaultValue: 'Singh'
         }
