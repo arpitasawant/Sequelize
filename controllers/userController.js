@@ -7,7 +7,7 @@ const addUser = async (req,res)=>
     console.log(jane instanceof User);//true
     console.log(jane.firstName);//arpita
     // await jane.save();
-    // jane.set({firstName:'Himani',lastName:'Sheregar'});
+    // jane.set({firstName:'himani',lastName:'Sheregar'});
         jane.update({firstName:'Himani',lastName:'Sheregar'});
 
     console.log("Himani was saved to the database!");
