@@ -1,6 +1,6 @@
 const {Sequelize, DataTypes, Model} = require('sequelize')
 
-// Passing parameters separately (other dialects)
+// Passing the parameters separately (other dialects)
 
 const sequelize = new Sequelize('employeedb','root','arpita@3006',{
     host: 'localhost',
