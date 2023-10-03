@@ -1,4 +1,5 @@
 //Require Model
+
 var db = require('../models')
 const User = db.user;
 
@@ -6,7 +7,7 @@ const addUser = async (req,res)=>
 {
     const jane = await User.create({firstName:'Arpita',lastName:'Sawant'});
     console.log(jane instanceof User);//true
-    console.log(jane.firstName);//Arpita
+    console.log(jane.firstName);// Arpita
     // await jane.save();
     // jane.set({firstName:'Himani',lastName:'Sheregar'});
         jane.update({firstName:'Himani',lastName:'Sheregar'});
