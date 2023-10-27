@@ -1,4 +1,4 @@
-//Require Model 
+//Require Model...
 
 var db = require('../models')
 const User = db.user;
